@@ -1,0 +1,66 @@
+POST  http://{{serverURL}}}/api/networkPlan/v1/plan
+
+# 三级CLOS架构请求报文
+{
+    "plan": {
+        "engineeringId": "4006646598",  # 工程ID(自定义)
+        "projectId": "400664651111",    # 项目ID（自定义）
+        "productId": "1003936005",      # CT4产品ID(固定)
+        "archId": "4",  
+        "archCode": "single-az-3-clos",
+        "archName": "三级CLOS架构",
+        "planStatus": "1"
+    }
+}
+
+# 两级CLOS架构请求报文
+{
+    "plan": {
+        "engineeringId": "4006646598",  # 工程ID(自定义)
+        "projectId": "400664651111",    # 项目ID（自定义）
+        "productId": "1003936005",      # CT4产品ID(固定)
+        "archId": "1003986104",
+        "archCode": "single-az-2-clos"
+        "archName": "单AZ两级CLOS架构",
+        "planStatus": "1"
+    }
+}
+
+
+# 小规模架构请求报文
+{
+    "plan": {
+        "engineeringId": "4006646598",  # 工程ID(自定义)
+        "projectId": "400664651111",    # 项目ID（自定义）
+        "productId": "1003936005",      # CT4产品ID(固定)
+        "archId": "1003944003",
+        "archCode": "single-az",
+        "archName": "单AZ小规模架构",
+        "planStatus": "1"
+    }
+}
+
+# 反回报文示例
+{
+    "code": "success",
+    "data": {
+        "code": 1,
+        "msg": "成功",
+        "plan": {
+            "planId": "187021803699335168",     # 规划ID
+            "projectId": "4006646511111111",    # 项目ID
+            "engineeringId": "4006646598",  # 工程ID
+            "productId": "1003936005",     # CT4产品ID
+            "planStatus": "1",
+            ''''''
+            "archId": 4,
+            "archCode": "single-az-3-clos",
+            "archName": "三级CLOS架构",
+            ''''''
+        }
+    }
+}
+
+
+# 访问生成的一个新规划
+http://{{serverURL}}}/network/plan/【替换成项目ID】/ct4-planning-tabs/【替换成返回报文中的规划ID】/ct4-business-plane-typein/0
